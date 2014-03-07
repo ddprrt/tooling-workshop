@@ -3,7 +3,6 @@
 var gulp 	= require('gulp'),
 	jshint 	= require('gulp-jshint'),
 	concat	= require('gulp-concat'),
-	rename	= require('gulp-rename'),
 	cssmin	= require('gulp-cssmin'),
 	uglify	= require('gulp-uglify');
 
@@ -31,9 +30,8 @@ gulp.task('test', function() {
 
 gulp.task('scripts', ['test'], function() {
 	gulp.src('app/scripts/*.js')
-		.pipe(concat())
+		.pipe(concat('main.min.js'))
 		.pipe(uglify())
-		.pipe(rename('main.min.js'))
 		.pipe(gulp.dest('dist/scripts'));
 });
 

@@ -1,0 +1,26 @@
+{
+  "name": "grunt-sample",
+  "version": "0.0.1",
+  "description": "Sample for JSDays' Gulp workshop",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grunt",
+    "gulp",
+    "javascript",
+    "yeoman"
+  ],
+  "devDependencies": {
+    "gulp": "~3.5.5",
+    "gulp-uglify": "~0.2.1",
+    "gulp-jshint": "~1.5.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-concat": "~2.1.7",
+    "gulp-sass": "~0.7.1",
+    "gulp-cssmin": "~0.1.3"
+  },
+  "author": "Stefan Baumgartner",
+  "license": "MIT"
+}

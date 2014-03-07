@@ -1,3 +1,3 @@
 (function() {
-	console.log('Hello from JS Days!')
+	console.log('Hello from JS Days!');
 })();
