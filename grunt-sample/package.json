@@ -23,6 +23,7 @@
   "devDependencies": {
     "grunt": "~0.4.2"
   },
+  "repository": "https://github.com/ddprrt/tooling-workshop",
   "author": "Stefan Baumgartner",
   "license": "MIT"
 }

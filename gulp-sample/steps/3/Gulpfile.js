@@ -3,9 +3,11 @@
 var gulp 	= require('gulp'),
 	jshint 	= require('gulp-jshint'),
 	concat	= require('gulp-concat'),
+	sass 	= require('gulp-sass'),
 	rename	= require('gulp-rename'),
 	cssmin	= require('gulp-cssmin'),
-	uglify	= require('gulp-uglify');
+	uglify	= require('gulp-uglify'),
+	connect	= require('gulp-connect');
 
 gulp.task('styles', function() {
 	gulp.src('app/styles/main.scss')
@@ -37,6 +39,21 @@ gulp.task('scripts', ['test'], function() {
 		.pipe(gulp.dest('dist/scripts'));
 });
 
+gulp.task('server', connect.server({
+	root: ['app','.tmp'],
+	host: '0.0.0.0',
+	port: 9000,
+	livereload: true
+}));
+
+gulp.task('reload', function() {
+	gulp.src('.tmp/styles/*.css')
+		.pipe(connect.reload());
+});
+
 gulp.task('default', ['scripts', 'styles']);
 
-gulp.task('dev', ['test', 'styles-dev']);
+gulp.task('dev', ['test', 'styles-dev', 'server'], function() {
+	gulp.watch('.tmp/styles/**/*.css', ['reload']);
+	gulp.watch('app/styles/main.scss', ['styles-dev']);
+});
