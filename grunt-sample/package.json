@@ -1,0 +1,17 @@
+{
+  "name": "grunt-sample",
+  "version": "0.0.1",
+  "description": "Sample for JSDays' Grunt workshop",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grunt",
+    "gulp",
+    "javascript",
+    "yeoman"
+  ],
+  "author": "Stefan Baumgartner",
+  "license": "MIT"
+}
