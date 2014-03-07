@@ -5,7 +5,7 @@
 
 'use strict';
 
-module.export = function(grunt) {
+module.exports = function(grunt) {
 	/**
 	 * Load tasks
 	 */
