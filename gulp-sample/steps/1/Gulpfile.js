@@ -7,14 +7,14 @@ var gulp 	= require('gulp'),
 
 
 gulp.task('test', function() {
-	gulp.src(['app/scripts/*.js'])
+	return gulp.src(['app/scripts/*.js'])
 		.pipe(jshint())
 		.pipe(jshint.reporter('default')) 	// output if everything is ok
 		.pipe(jshint.reporter('fail'));		// output (and break) if something happened
 })
 
 gulp.task('scripts', ['test'], function() {
-	gulp.src(['app/scripts/*.js'])
+	return gulp.src(['app/scripts/*.js'])
 		.pipe(concat('main.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/scripts'));
