@@ -3,23 +3,23 @@
 var gulp 	= require('gulp'),
 	jshint 	= require('gulp-jshint'),
 	concat	= require('gulp-concat'),
-	sass 	= require('gulp-sass'),
+	less 	= require('gulp-less'),
 	rename	= require('gulp-rename'),
 	cssmin	= require('gulp-cssmin'),
 	uglify	= require('gulp-uglify'),
 	connect	= require('gulp-connect');
 
 gulp.task('styles', function() {
-	return gulp.src('app/styles/main.scss')
-		.pipe(sass())
+	return gulp.src('app/styles/main.less')
+		.pipe(less())
 		.pipe(cssmin())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('styles-dev', function() {
-	return gulp.src('app/styles/main.scss')
-		.pipe(sass())
+	return gulp.src('app/styles/main.less')
+		.pipe(less())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('.tmp/styles'));
 });
@@ -55,5 +55,5 @@ gulp.task('default', ['scripts', 'styles']);
 
 gulp.task('dev', ['test', 'styles-dev', 'server'], function() {
 	gulp.watch('.tmp/styles/**/*.css', ['reload']);
-	gulp.watch('app/styles/main.scss', ['styles-dev']);
+	gulp.watch('app/styles/main.less', ['styles-dev']);
 });

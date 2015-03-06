@@ -1,5 +1,5 @@
 /**
- * Update: Adds Sass and shows different options for different targets, thus also
+ * Update: Adds LESS and shows different options for different targets, thus also
  * registers different tasks
  */
 
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 	 */
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-less');
 
 	/**
 	 * initialize configuration
@@ -29,22 +29,18 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		sass: {
+		less: {
 			dist: {
 				files: {
-					'dist/styles/main.css' : ['app/styles/main.scss']
+					'dist/styles/main.css' : ['app/styles/main.less']
 				},
 				options: {
-					style: 'compressed'
+					compress: true
 				}
 			},
 			dev: {
 				files: {
-					'.tmp/styles/main.css' : ['app/styles/main.scss']
-				},
-				options: {
-					style: 'expanded',
-					debugInfo: true
+					'.tmp/styles/main.css' : ['app/styles/main.less']
 				}
 			}
 		}
@@ -53,11 +49,11 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', [
 		'jshint', 
 		'uglify',
-		'sass:dist'
+		'less:dist'
 	]);
 
 	grunt.registerTask('dev', [
 		'jshint',
-		'sass:dev'
+		'less:dev'
 	]);
 };

@@ -4,19 +4,20 @@ var gulp 	= require('gulp'),
 	jshint 	= require('gulp-jshint'),
 	concat	= require('gulp-concat'),
 	cssmin	= require('gulp-cssmin'),
+	less	= require('gulp-less'),
 	uglify	= require('gulp-uglify');
 
 gulp.task('styles', function() {
-	return gulp.src('app/styles/main.scss')
-		.pipe(sass())
+	return gulp.src('app/styles/main.less')
+		.pipe(less())
 		.pipe(cssmin())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('styles-dev', function() {
-	return gulp.src('app/styles/main.scss')
-		.pipe(sass())
+	return gulp.src('app/styles/main.less')
+		.pipe(less())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('.tmp/styles'));
 });
